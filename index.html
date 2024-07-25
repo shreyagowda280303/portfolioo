@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Shreya T N</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <div class="showcase-content">
+                <img src="shreya.jpg" alt="Your Name" class="showcase-image">
+                <div class="text-content">
+                    <h1>Welcome to My Portfolio</h1>
+                    <p>discover my talent and skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <main>
+        <section id="about" class="fade-in">
+            <h2>About Me</h2>
+            <p>I am currently pursuing my Bachelor of Engineering in Computer Science at Malnad College of Engineering, Hassan. I am a team person who spreads positivity and is hardworking.</p>
+        </section>
+
+        <section id="projects" class="slide-in-left">
+            <h2>Projects</h2>
+            <ol>
+                <li>smart shoe using IOT</li>
+                <li>water management system </li>
+                <li>nursury plant system website using fullstack</li>
+            </ol>
+        </section>
+
+        <section id="skills" class="slide-in-right">
+            <h2>Skills</h2>
+            <ul>
+                <li>Quick learner</li>
+                <li>Ability to work independently as well as in groups</li>
+                <li>Enthusiastic and can produce results under deadline constraints</li>
+                <li>Good communication and customer service skills</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="zoom-in">
+            <h2>Contact</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Shreya T N &copy; 2024</p>
+    </footer>
+
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Add event listener for scroll event
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('visible');
+                } else {
+                    section.classList.remove('visible'); // Optional: Remove class if not in viewport
+                }
+            });
+        });
+
+        // Trigger the scroll event to check visibility on page load
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
+
